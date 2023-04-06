@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,6 +18,10 @@ public class Post {
     private String title;
     private String content;
     private String author;
+
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private List<Comment> comments;
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    private User user;

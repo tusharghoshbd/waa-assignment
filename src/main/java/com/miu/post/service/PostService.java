@@ -13,5 +13,7 @@ public interface PostService {
 
     PostDtos getById(long id);
 
+    Post findById(long id);
+
     void save(Post p);
 }

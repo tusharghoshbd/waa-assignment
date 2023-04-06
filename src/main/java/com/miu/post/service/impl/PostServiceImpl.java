@@ -38,6 +38,9 @@ public class PostServiceImpl implements PostService {
 //        return postRepo.getById(id);
     }
 
+    public Post findById(long id) {
+        return postRepo.findById((int)id).get();
+    }
 
     @Override
     public void save(Post p) {
