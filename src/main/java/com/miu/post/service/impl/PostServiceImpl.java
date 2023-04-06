@@ -32,6 +32,11 @@ public class PostServiceImpl implements PostService {
         return postRepo.findAll();
     }
 
+    public List<Post> findAllByTitleEqualsIgnoreCase(String title){
+        return postRepo.findAllByTitleEqualsIgnoreCase(title);
+    }
+
+
 
     public PostDtos getById(long id) {
         return modelMapper.map(postRepo.findById((int)id), PostDtos.class);

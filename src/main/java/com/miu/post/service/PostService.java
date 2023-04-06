@@ -15,5 +15,7 @@ public interface PostService {
 
     Post findById(long id);
 
+    public List<Post> findAllByTitleEqualsIgnoreCase(String title);
+
     void save(Post p);
 }

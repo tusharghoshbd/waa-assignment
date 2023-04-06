@@ -1,6 +1,7 @@
 package com.miu.post.controller;
 
 import com.miu.post.entity.Post;
+import com.miu.post.entity.User;
 import com.miu.post.entity.dtos.PostDtos;
 import com.miu.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,13 @@ public class PostController {
         var post = postService.getById(id);
         return ResponseEntity.ok(post);
     }
+
+    @GetMapping("/filters")
+    public ResponseEntity<List<Post>> getUsersByPostNum(@RequestParam(value = "title",required = true) String title) {
+        List<Post> post = postService.findAllByTitleEqualsIgnoreCase(title);
+        return new ResponseEntity<>(post, HttpStatus.OK) ;
+    }
+
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
