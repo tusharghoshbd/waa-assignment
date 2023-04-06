@@ -35,18 +35,21 @@ public class UserController {
         return new ResponseEntity<>(user.getPosts(), HttpStatus.OK) ;
     }
 
+    @GetMapping("/filters")
+    public ResponseEntity<List<User>> getUsersByPostNum(@RequestParam(value = "postNum" ,required = true) Integer postNum) {
+        List<User> user = userService.findAllByPostsGreaterThan(postNum);
+        return new ResponseEntity<>(user, HttpStatus.OK) ;
+    }
+
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
     public void save(@RequestBody User p) {
         userService.save(p);
     }
 
-//    @PostMapping("/{id}/posts")
-//    public void savePost(@PathVariable(value = "id") Long id, @RequestBody Post post) {
-//        User user = userService.findById(id);
-//        post.setUser(user);
-//        postService.save(post);
-//    }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") long id) {

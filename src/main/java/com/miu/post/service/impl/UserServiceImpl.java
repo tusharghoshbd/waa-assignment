@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -34,4 +35,16 @@ public class UserServiceImpl implements UserService {
     public void deleteById(long id){
         userRepo.deleteById((int)id);
     }
+
+
+    public List<User> findAllByPostsGreaterThan(int num){
+        var users =  userRepo.findAllByPostsGreaterThan(num);
+        if(users != null) {
+            return users.stream().toList();
+        }
+        else {
+            return new ArrayList<>();
+        }
+    }
+
 }

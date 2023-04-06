@@ -2,6 +2,7 @@ package com.miu.post.repo;
 
 import com.miu.post.entity.Post;
 import com.miu.post.entity.User;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,11 @@ public interface UserRepo extends CrudRepository<User,Integer> {
 
     @Override
     Optional<User> findById(Integer integer);
+
+    @Query(value = "SELECT * FROM users u WHERE u.id IN (SELECT p.user_id FROM posts p GROUP BY p.user_id HAVING count(*) > :num)", nativeQuery = true)
+    public List<User> findAllByPostsGreaterThan(int num);
+
+
 
     //    public List<User> findAll();
 

@@ -16,4 +16,6 @@ public interface UserService {
     void save(User p);
 
     public void deleteById(long id);
+
+    public List<User> findAllByPostsGreaterThan(int num);
 }
