@@ -1,5 +1,6 @@
 package com.miu.post.controller;
 
+import com.miu.post.aspect.annotation.ExecutionTime;
 import com.miu.post.entity.Post;
 import com.miu.post.entity.User;
 import com.miu.post.entity.dtos.PostDtos;
@@ -38,6 +39,7 @@ public class PostController {
     }
 
     @GetMapping("/filters")
+    @ExecutionTime
     public ResponseEntity<List<Post>> getUsersByPostNum(@RequestParam(value = "title",required = true) String title) {
         List<Post> post = postService.findAllByTitleEqualsIgnoreCase(title);
         return new ResponseEntity<>(post, HttpStatus.OK) ;
