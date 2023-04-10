@@ -23,7 +23,10 @@ public class Post {
     @JoinColumn(name = "post_id")
     private List<Comment> comments;
 
+    privat
+
 //    @ManyToOne(fetch = FetchType.LAZY)
+
 //    private User user;
 
 //    public Post(long id, String title, String content, String author) {

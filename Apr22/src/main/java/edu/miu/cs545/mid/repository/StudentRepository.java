@@ -1,0 +1,12 @@
+package edu.miu.cs545.mid.repository;
+
+import edu.miu.cs545.mid.entity.Student;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Collection;
+
+@Repository
+public interface StudentRepository extends CrudRepository<Student, Long> {
+    Collection<Student> findByGpaGreaterThan(Double gpa);
+}
