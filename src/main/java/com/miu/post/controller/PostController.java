@@ -22,6 +22,12 @@ public class PostController {
         this.postService = postService1;
     }
 
+    @GetMapping(value = "/hello")
+    public String helloWorld() {
+        System.out.println("hello");
+        return "hello world";
+    }
+
     @GetMapping(value = "/")
     public List<PostDtos> findAll() {
         return postService.findAll();

@@ -16,6 +16,7 @@ public interface UserRepo extends CrudRepository<User,Integer> {
 //    @Override
 //    Iterable<User> findAllById(Iterable<Integer> integers);
 
+    User findByEmail(String email);
     @Override
     Optional<User> findById(Integer integer);
 
