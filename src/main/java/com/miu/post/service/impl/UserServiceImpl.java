@@ -18,6 +18,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
+
+//        System.out.println(userRepo.findAll().toString());
         return userRepo.findAll();
     }
 

@@ -22,9 +22,18 @@ public class UserController {
         this.userService = userService1;
     }
 
+    @GetMapping(value = "/hello")
+    public String helloWorld() {
+        System.out.println("hello");
+        return "hello world";
+    }
+
     @GetMapping(value = "/")
     public List<User> findAll() {
-        return userService.findAll();
+
+        List<User> users = userService.findAll();
+        System.out.println(users.size());
+        return users;
     }
 
 

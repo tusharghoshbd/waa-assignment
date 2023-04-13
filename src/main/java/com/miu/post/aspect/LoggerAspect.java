@@ -23,12 +23,12 @@ public class LoggerAspect {
     @Around("logMe()")
     public void logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         String log = "BEFORE Log around: " + proceedingJoinPoint.getSignature().getClass() +" -> "+ proceedingJoinPoint.getSignature().getName();
-        loggerService.save(log);
+//        loggerService.save(log);
 
         proceedingJoinPoint.proceed();
 
         log = "AFTER Log around: " + proceedingJoinPoint.getSignature().getClass() +" -> "+ proceedingJoinPoint.getSignature().getName();
-        loggerService.save(log);
+//        loggerService.save(log);
     }
 
 
